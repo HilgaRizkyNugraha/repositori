@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Repositori;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+class RepositoriSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $faker = Faker::create("id_ID");
+        for ($i = 0; $i < 10; $i++) {
+
+            Repositori::create([
+                'title' => $faker->sentence(5),
+                'author'=> $faker->name(),
+                'year'=> $faker->numberbetween(2000, 2023),
+                'description' => $faker->paragraph(),
+            ]);
+        }
+    }
+}
