@@ -1,6 +1,6 @@
 @extends('layouts.App')
 @section('content')
-  <body class="bg-light">
+  <body class="bg-dark">
     <main class="container">
        <!-- START FORM -->
        <form action='' method='post'>

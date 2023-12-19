@@ -24,7 +24,7 @@ class Repositoricontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('repositori.create');
     }
 
     /**
@@ -32,7 +32,15 @@ class Repositoricontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+        ]);
+        $new = Repositori::create($request -> all());
+        return redirect()->route('repositori.index')->with('success', $new->title . ' added successfully');
     }
 
     /**
@@ -48,7 +56,9 @@ class Repositoricontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $repositori = Repositori::find($id); 
+        return view('repositori.edit', compact('repositori'));
+    
     }
 
     /**
@@ -56,7 +66,10 @@ class Repositoricontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //dd($request->all());
+        $repositories = Repositori::find($id);
+        $repositories->update($request->all());
+        return redirect()->route('repositori.index')->with('success', $repositories->title . ' updated successfully');
     }
 
     /**
@@ -64,6 +77,8 @@ class Repositoricontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $repositories = Repositori::find($id);
+        $repositories->delete();
+        return redirect()->route('repositori.index')->with('success', $repositories->title . ' deleted successfully');
     }
 }

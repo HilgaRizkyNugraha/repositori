@@ -3,7 +3,7 @@
 use App\Http\Controllers\RepositoriController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;   
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::get('/', function () {
     // Auth::routes();
 
     // Route::get('/home', [App\Http\Controllers\HomeControler::class, 'index'])->name('home'); 
-
+        
 Route::get('user', [UserController::class, 'index'])->name('user'); 
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create'); 
 Route::get('/user/show', [UserController::class, 'show'])->name('user.show');
