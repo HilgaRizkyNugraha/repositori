@@ -19,7 +19,7 @@
     <td><a href="{{ route('repositori.create') }}" class="btn btn-primary float-right btn-sm my-3">Create</a></td>
     </div>
 
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" id="table">
         <thead class="thead-dark text-center">
             <tr>
                 <th class="col-md-1">No</th>
